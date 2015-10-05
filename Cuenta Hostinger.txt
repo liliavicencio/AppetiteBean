@@ -1,0 +1,6 @@
+ususario: apptetitemonterrey@gmail.com
+contraseña: suculentoAperitivo
+
+database: u616372138_app
+usuario: u616372138_user
+contraseña: root15
