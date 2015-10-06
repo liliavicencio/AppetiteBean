@@ -5,4 +5,21 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="Text_Pago" >
+        <item name="android:textStyle">bold</item>
+        <item name="android:typeface">normal</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#E8EAF6</item>
+        <item name="android:layout_marginLeft">22sp</item>
+        <item name="android:layout_marginTop">15sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="EditText_Pago">
+        <item name="android:background">#5C6BC0</item>
+        <item name="android:layout_weight">0.03</item>
+        <item name="android:layout_marginLeft">22sp</item>
+    </style>
+
 </resources>

@@ -3,4 +3,14 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!--  String of Pay Window -->
+    <string name="type_card">Tipo de Tarjeta</string>
+    <string name="name_property">Nombre del Propietario</string>
+    <string name="expiration_date">Fecha de Vencimiento</string>
+    <string name="card_numer">Número de tarjeta</string>
+    <string name="security_code">Codigo de Seguridad</string>
+    <string name="mail">Correo</string>
+    <string name="check_mail">Verificación de Correo</string>
+    <string name="confirm_pay">Confimar Pago</string>
 </resources>
