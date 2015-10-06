@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Indigo"
+    android:weightSum="1">
+
+    <TextView
+        style="@style/Text_Pago"
+        android:text="@string/type_card"
+        android:id="@+id/type_card" />
+    <EditText
+        style="@style/EditText_Pago"
+        android:layout_width="327dp"
+        android:layout_height="wrap_content"/>
+    <TextView
+        style="@style/Text_Pago"
+        android:text="@string/name_property"
+        android:id="@+id/name_property" />
+
+</LinearLayout>
