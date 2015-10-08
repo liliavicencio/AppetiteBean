@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-
 import com.appetite.appetite.R;
 
 public class Noticias extends Activity implements OnClickListener {

@@ -1,25 +1,39 @@
 <resources>
 
-    <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+        <item name="android:typeface">normal</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
     </style>
 
-    <style name="Text_Pago" >
+    <style name="AppTheme.Text_Pago" >
         <item name="android:textStyle">bold</item>
-        <item name="android:typeface">normal</item>
         <item name="android:textSize">24sp</item>
         <item name="android:textColor">#E8EAF6</item>
-        <item name="android:layout_marginLeft">22sp</item>
         <item name="android:layout_marginTop">15sp</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginLeft">22sp</item>
+        <item name="android:layout_marginRight">22sp</item>
     </style>
 
-    <style name="EditText_Pago">
+    <style name="AppTheme.EditText_Pago">
+        <item name="android:typeface">normal</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:textColor">#E8EAF6</item>
         <item name="android:background">#5C6BC0</item>
-        <item name="android:layout_weight">0.03</item>
+        <item name="android:textColorHint">#9FA8DA</item>
+        <item name="android:layout_marginTop">10sp</item>
         <item name="android:layout_marginLeft">22sp</item>
+        <item name="android:layout_marginRight">22sp</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">0.03</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+    </style>
+
+    <style name="RadioGroup_Pago">
+        <item name="android:layout_marginLeft">26sp</item>
     </style>
 
 </resources>
