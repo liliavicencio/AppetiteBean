@@ -11,9 +11,9 @@
         android:text="@string/list_product"/>
 
     <ScrollView
-        android:background="#5C6BC0"
+        android:background="@drawable/rounded_corner"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="360dp"
         android:layout_marginLeft="22sp"
         android:layout_marginRight="22sp"
         android:layout_marginTop="15sp"
@@ -28,7 +28,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="40sp">
+        android:layout_height="50sp">
         <TextView
             style="@style/AppTheme.Text_Pago"
             android:layout_height="match_parent"
