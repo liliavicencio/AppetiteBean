@@ -18,6 +18,7 @@
     <string name="security_code">Código de Seguridad</string>
 
     <!--  String of buy Window -->
-    <string name="list_product">Resumén de Compra</string>
-    <string name="confimation_code">Código de Confirmación</string>
+    <string name="list_product">Orden de Compra</string>
+    <string name="confimation_code">Código de Confirmación:</string>
+    <string name="code"></string>
 </resources>

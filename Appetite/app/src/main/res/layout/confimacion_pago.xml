@@ -13,7 +13,7 @@
     <ScrollView
         android:background="#5C6BC0"
         android:layout_width="match_parent"
-        android:layout_height="230dp"
+        android:layout_height="300dp"
         android:layout_marginLeft="22sp"
         android:layout_marginRight="22sp"
         android:layout_marginTop="15sp"
@@ -25,13 +25,22 @@
         </ListView>
     </ScrollView>
 
-    <TextView
-        style="@style/AppTheme.Text_Pago"
-        android:layout_height="30sp"
-        android:text="@string/confimation_code"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40sp">
+        <TextView
+            style="@style/AppTheme.Text_Pago"
+            android:layout_height="match_parent"
+            android:layout_width="275sp"
+            android:layout_marginRight="0sp"
+            android:text="@string/confimation_code"/>
 
-    <TextView
-        style="@style/AppTheme.Text_Pago"
-        android:layout_height="30sp"
-        android:text=""/>
+        <TextView
+            style="@style/AppTheme.Text_Pago"
+            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_marginLeft="0sp"
+            android:text="@string/code"/>
+    </LinearLayout>
 </LinearLayout>
