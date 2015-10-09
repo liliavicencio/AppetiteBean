@@ -27,6 +27,9 @@
         <activity
             android:name=".model.ConfimacionPago"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".model.Asientos"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

@@ -29,6 +29,10 @@ public class Noticias extends Activity implements OnClickListener {
                 Intent intent = new Intent(this, Pago.class);
                 startActivity(intent);
                 break;
+            case R.id.button2:
+                Intent i = new Intent(this, Asientos.class);
+                startActivity(i);
+                break;
         }
     }
 }
