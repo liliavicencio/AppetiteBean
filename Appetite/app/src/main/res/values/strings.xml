@@ -13,4 +13,6 @@
     <string name="mail">Correo</string>
     <string name="check_mail">Verificación de Correo</string>
     <string name="confirm_pay">Confimar Pago</string>
+    <string name="title_activity_menu">Menu</string>
+    <string name="title_activity_menu_opciones">MenuOpciones</string>
 </resources>
