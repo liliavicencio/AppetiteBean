@@ -47,7 +47,13 @@
         <activity
             android:name=".model.ConfimacionPago"
             android:screenOrientation="portrait" />
+<<<<<<< HEAD
 >>>>>>> 61265a8233305303782500bd96721cfc51e8c508
+=======
+        <activity
+            android:name=".model.Asientos"
+            android:screenOrientation="portrait" />
+>>>>>>> origin/master
     </application>
 
 </manifest>
