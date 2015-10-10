@@ -77,4 +77,29 @@
             android:layout_column="0" />
     </TableRow>
 
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22sp"
+            android:layout_marginRight="22sp"
+            android:id="@+id/btnAsiento"
+            android:text="Asiennto"
+            android:onClick="onClick" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22sp"
+            android:layout_marginRight="22sp"
+            android:id="@+id/btnMenuOpciones"
+            android:text="Menu Opciones"
+            android:onClick="onClick" />
+    </TableRow>
 </TableLayout>

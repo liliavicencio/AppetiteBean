@@ -27,9 +27,12 @@ public class Asientos extends Activity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
+        Intent intent;
         switch (v.getId()) {
-            case R.id.button:
-                 break;
+            case R.id.seleccionar:
+                intent = new Intent(this, Reservacion.class);
+                startActivity(intent);
+                break;
         }
     }
 }

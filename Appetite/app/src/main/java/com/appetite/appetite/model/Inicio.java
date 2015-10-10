@@ -8,25 +8,25 @@ import android.view.View.OnClickListener;
 
 import com.appetite.appetite.R;
 
-public class Ticket extends Activity implements OnClickListener {
+/**
+ * Created by Alex on 10/10/2015.
+ */
+public class Inicio extends Activity implements OnClickListener {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ticket);
+        setContentView(R.layout.inicio);
     }
 
     @Override
     public void onClick(View v) {
-        Intent intent;
 
         switch (v.getId()) {
-            case R.id.btnConfirmarPago:
-                intent = new Intent(this, Pago.class);
+            case R.id.btnReservar:
+                Intent intent = new Intent(this, Reservacion.class);
                 startActivity(intent);
                 break;
         }
     }
-
 }
-

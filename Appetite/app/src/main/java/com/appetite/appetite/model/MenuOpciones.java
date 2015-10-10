@@ -6,10 +6,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 import android.view.View.OnClickListener;
-import android.view.Menu;
-import android.widget.EditText;
 
 import com.appetite.appetite.R;
 
@@ -51,7 +48,7 @@ public class MenuOpciones extends Activity {
 
         button1.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
-                Intent intent = new Intent(MenuOpciones.this, ticket.class);
+                Intent intent = new Intent(MenuOpciones.this, Ticket.class);
                 startActivity(intent);
             }
         });
