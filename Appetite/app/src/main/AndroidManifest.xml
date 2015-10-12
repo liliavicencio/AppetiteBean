@@ -37,6 +37,7 @@
         <activity android:name=".model.Ticket"/>
         <activity android:name=".model.Pago"
             android:windowSoftInputMode="stateHidden"
+            android:configChanges="orientation|screenSize"
         />
         <activity android:name=".model.ConfimacionPago" />
         <activity
