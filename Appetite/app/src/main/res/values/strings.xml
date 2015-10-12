@@ -18,12 +18,10 @@
 
     <string name="title_activity_menu">Menu</string>
     <string name="title_activity_menu_opciones">MenuOpciones</string>
-=======
     <string name="security_code">Código de Seguridad</string>
 
     <!--  String of buy Window -->
     <string name="list_product">Orden de Compra</string>
     <string name="confimation_code">Código de Confirmación:</string>
-    <string name="code"></string>
->>>>>>> 61265a8233305303782500bd96721cfc51e8c508
+    <string name="code">7777</string>
 </resources>

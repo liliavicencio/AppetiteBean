@@ -63,7 +63,8 @@
 
         <EditText
             style="@style/AppTheme.EditText_Pago"
-            android:hint="@string/name_property" />
+            android:hint="@string/name_property"
+            android:focusable="false" />
 
         <EditText
             style="@style/AppTheme.EditText_Pago"

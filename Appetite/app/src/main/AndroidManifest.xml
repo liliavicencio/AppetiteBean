@@ -35,12 +35,8 @@
             android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".model.Presentacion"/>
         <activity android:name=".model.Ticket"/>
-        <activity
-            android:name=".model.Pago"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".model.ConfimacionPago"
-            android:screenOrientation="portrait" />
+        <activity android:name=".model.Pago" />
+        <activity android:name=".model.ConfimacionPago" />
         <activity
             android:name=".model.Asientos"
             android:screenOrientation="portrait" />
