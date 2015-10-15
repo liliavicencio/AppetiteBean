@@ -9,6 +9,7 @@ import android.widget.ListView;
 import android.view.View.OnClickListener;
 
 import com.appetite.appetite.R;
+import com.appetite.appetite.adapter.ListViewAdapter;
 
 public class MenuOpciones extends Activity {
     ListViewAdapter adapter;

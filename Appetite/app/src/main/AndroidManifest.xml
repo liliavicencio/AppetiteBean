@@ -29,10 +29,6 @@
             android:name=".model.MenuOpciones"
             android:label="@string/title_activity_menu"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".model.Noticias"
-            android:label="@string/title_activity_menu_opciones"
-            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".model.Presentacion"/>
         <activity android:name=".model.Ticket"/>
         <activity android:name=".model.Pago"
@@ -43,6 +39,7 @@
         <activity
             android:name=".model.Asientos"
             android:screenOrientation="portrait" />
+        <activity android:name=".model.ImageTest"/>
     </application>
 
 </manifest>

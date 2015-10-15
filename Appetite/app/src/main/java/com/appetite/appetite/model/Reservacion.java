@@ -24,7 +24,8 @@ public class Reservacion extends Activity implements OnClickListener {
         Intent intent;
         switch (v.getId()) {
             case R.id.btnAsiento:
-                intent = new Intent(this, Asientos.class);
+                //intent = new Intent(this, Asientos.class);
+                intent = new Intent(this, ImageTest.class);
                 startActivity(intent);
                 break;
             case R.id.btnMenuOpciones:
