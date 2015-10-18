@@ -2,6 +2,7 @@
 <resources>
     <color name="Deep_Orange">#FF5722</color>
     <color name="Indigo">#3F51B5</color>
+    <color name="Blanco">#FFFFFF</color>
     <color name="Deep_Indigo">#1A237E</color>
     <color name="Light_Indigo">#E8EAF6</color>
 </resources>

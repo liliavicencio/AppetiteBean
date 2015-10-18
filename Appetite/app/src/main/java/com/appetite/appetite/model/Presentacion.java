@@ -20,7 +20,7 @@ public class Presentacion extends Activity {
     String[] titulo = new String[]{
             "Entradas",
             "Desayunos",
-            "Ensadalas",
+            "Ensaladas",
             "Cortes",
             "Hamburguesas",
             "Especialidades",
