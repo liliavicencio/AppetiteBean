@@ -7,11 +7,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.appetite.appetite.R;
 import com.appetite.appetite.model.Image;
 
 import java.util.ArrayList;
+
 
 /**
  * Created by Alex on 14/10/2015.
@@ -19,11 +21,14 @@ import java.util.ArrayList;
 public class ImageAdapter extends BaseAdapter {
     private Activity activity;
     private ArrayList<Image> items;
+    private ArrayList<String> comida;
 
-    public ImageAdapter(Activity activity, ArrayList<Image> items) {
+    public ImageAdapter(Activity activity, ArrayList<Image> items, ArrayList<String> comida) {
         this.activity = activity;
         this.items = items;
+        this.comida = comida;
     }
+
 
     @Override
     public int getCount() {
@@ -46,6 +51,9 @@ public class ImageAdapter extends BaseAdapter {
         View view;
         ImageView imageView;
 
+        String Comida;
+        TextView comidaView;
+
         view = convertView;
 
         if(convertView == null) {
@@ -55,8 +63,11 @@ public class ImageAdapter extends BaseAdapter {
         }
 
         image = items.get(position);
+        Comida = comida.get(position);
         imageView = (ImageView) view.findViewById(R.id.image);
+        comidaView = (TextView) view.findViewById(R.id.comida);
         imageView.setImageBitmap(image.getImage());
+        comidaView.setText(Comida);
 
         return view;
     }

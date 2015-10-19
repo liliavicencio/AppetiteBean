@@ -24,6 +24,7 @@ public class ImageController extends AsyncTask<String, String, String> {
 
     private Activity activity;
     private ArrayList<Image> imageList = new ArrayList<>();
+    private ArrayList<String> comidaList = new ArrayList<>();
     private ListView listView;
 
     // url to get all products list
@@ -86,7 +87,7 @@ public class ImageController extends AsyncTask<String, String, String> {
             activity.runOnUiThread(new Runnable() {
                 @Override
                 public void run() {
-                    listView.setAdapter(new ImageAdapter(activity, imageList));
+                    listView.setAdapter(new ImageAdapter(activity, imageList, comidaList));
                 }
             });
         }

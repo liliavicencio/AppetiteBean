@@ -22,9 +22,19 @@
 
         <ListView
             android:layout_width="wrap_content"
-            android:layout_height="530dp"
+            android:layout_height="430dp"
             android:id="@+id/list_menu_opciones"
-            android:layout_marginTop="25dp" />
+            android:layout_marginTop="35dp"
+            android:layout_weight="2.52" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="TICKET"
+            android:id="@+id/button37"
+            android:layout_marginTop="50dp" />
+
     </LinearLayout>
 
 </ScrollView>

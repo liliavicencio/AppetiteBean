@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.appetite.appetite.R;
+import com.appetite.appetite.adapter.ImageAdapter;
 
 /**
  * Created by Alex on 10/10/2015.
