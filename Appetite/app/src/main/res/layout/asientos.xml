@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="1"
-        android:id="@+id/button"
+        android:id="@+id/btnTimerEntrada"
         android:background="@drawable/rounded_corner"
         android:layout_marginTop="29dp" />
 
@@ -23,9 +23,9 @@
         android:text="2"
         android:id="@+id/button2"
         android:background="@drawable/rounded_corner"
-        android:layout_alignTop="@+id/button"
-        android:layout_toRightOf="@+id/button"
-        android:layout_toEndOf="@+id/button" />
+        android:layout_alignTop="@+id/btnTimerEntrada"
+        android:layout_toRightOf="@+id/btnTimerEntrada"
+        android:layout_toEndOf="@+id/btnTimerEntrada" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:text="8"
         android:id="@+id/button8"
-        android:layout_below="@+id/button"
+        android:layout_below="@+id/btnTimerEntrada"
         android:layout_toLeftOf="@+id/button2"
         android:background="@drawable/rounded_corner"
         android:layout_toStartOf="@+id/button2" />

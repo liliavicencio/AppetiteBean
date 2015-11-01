@@ -24,4 +24,24 @@
     <string name="list_product">Orden de Compra</string>
     <string name="confimation_code">Código de Confirmación:</string>
     <string name="code">7777</string>
+
+    <!-- Strings for Reservación -->
+    <string name="sucursal_prompt">Escoja su Sucursal</string>
+    <string name="horario_entrada">Horario de Entrada:</string>
+    <string name="sucursal_label">Sucursal:</string>
+    <string name="personas_label">Personas:</string>
+    <string name="horario_salida">Horario de Salida:</string>
+    <string name="nota_reservacion">Se cobrara extra si se permanece más de 2 horas.</string>
+    <string name="btn_asiento">Asiento</string>
+    <string name="menu_opciones">Ver Menú</string>
+    <string name="btn_horarioSalida">Seleccionar Horario de Salida</string>
+    <string name="btn_horarioEntrada">Seleccionar Horario de Entrada</string>
+    <string name="resv_fecha">Fecha:</string>
+    <string name="rsv_fecha">Cambiar Fecha</string>
+
+    <string-array name="sucursal_arrays">
+        <item>Anahuac</item>
+        <item>Las Puentes</item>
+        <item>Cumbres</item>
+    </string-array>
 </resources>
