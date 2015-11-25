@@ -24,7 +24,7 @@ import java.util.Calendar;
 public class Reservacion extends Activity implements OnClickListener {
     //Spinner spinner;
 
-    static final int TIME1_DIALOG_ID=0;//timepicker
+    static final int TIME_DIALOG_ID=0;//timepicker
     int hour_x;//timepicker
     int minute_x;//timepicker
 
@@ -137,7 +137,7 @@ public class Reservacion extends Activity implements OnClickListener {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        showDialog(TIME1_DIALOG_ID);
+                        showDialog(TIME_DIALOG_ID);
                     }
                 }
         );
@@ -146,7 +146,7 @@ public class Reservacion extends Activity implements OnClickListener {
     @Override
     protected Dialog onCreateDialog(int id){
         switch (id){
-            case TIME1_DIALOG_ID:
+            case TIME_DIALOG_ID:
             return new TimePickerDialog(Reservacion.this, eTimePickerListner, hour_x, minute_x,false);
 
             case DATE_DIALOG_ID:

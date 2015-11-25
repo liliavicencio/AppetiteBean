@@ -39,7 +39,7 @@
     <string name="resv_fecha">Fecha:</string>
     <string name="rsv_fecha">Cambiar Fecha</string>
 
-    <string-array name="sucursal_arrays">
+    <string-array name="sucursal_array">
         <item>Anahuac</item>
         <item>Las Puentes</item>
         <item>Cumbres</item>
