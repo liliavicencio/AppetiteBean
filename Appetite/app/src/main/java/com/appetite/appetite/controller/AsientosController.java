@@ -1,8 +1,11 @@
 package com.appetite.appetite.controller;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
@@ -31,6 +34,8 @@ public class AsientosController extends AsyncTask<String, String, String> {
     private static final String TAG_MESSAGE = "message";
 
     private ArrayList<String> asientoList = new ArrayList<>();
+
+    private ProgressDialog pDialog;
 
     Button btn1;
     Button btn2;
@@ -71,6 +76,16 @@ public class AsientosController extends AsyncTask<String, String, String> {
         this.time2 = time2;
     }
 
+    /*@Override
+    protected void onPreExecute() {
+        super.onPreExecute();
+        pDialog = new ProgressDialog(activity);
+        pDialog.setMessage("Cargando asientos...");
+        pDialog.setIndeterminate(true);
+        pDialog.setCancelable(false);
+        pDialog.show();
+    }*/
+
     protected String doInBackground(String... args) {
         StringBuilder params = new StringBuilder();
         ServerConnection serverConnection = new ServerConnection();
@@ -80,7 +95,9 @@ public class AsientosController extends AsyncTask<String, String, String> {
         System.out.println(time);
         System.out.println(time2);
 
-        params.append("fecha").append("=").append(date).append("&").append("horaEntrada").append("=").append(time).append("&").append("horaSalida").append("=").append(time2);
+        params.append("fecha").append("=").append(date)
+                .append("&").append("horaEntrada").append("=").append(time)
+                .append("&").append("horaSalida").append("=").append(time2);
 
         json = serverConnection.makeHttpRequestPost(URL_, params.toString());
 
@@ -156,52 +173,62 @@ public class AsientosController extends AsyncTask<String, String, String> {
 
         if(asiento1 == 1){
             btn1.setEnabled(false);
+            btn1.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
         if(asiento2 == 1){
             btn2.setEnabled(false);
+            btn2.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
         if(asiento3 == 1){
             btn3.setEnabled(false);
+            btn3.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
         if(asiento4 == 1){
             btn4.setEnabled(false);
+            btn4.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
         if(asiento5 == 1){
             btn5.setEnabled(false);
+            btn5.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
         if(asiento6 == 1){
             btn6.setEnabled(false);
+            btn6.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
         if(asiento7 == 1){
             btn7.setEnabled(false);
+            btn7.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
         if(asiento8 == 1){
             btn8.setEnabled(false);
+            btn8.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
         if(asiento9 == 1){
             btn9.setEnabled(false);
+            btn9.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
         if(asiento10 == 1){
             btn10.setEnabled(false);
+            btn10.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
         if(asiento11 == 1){
             btn11.setEnabled(false);
+            btn11.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
         if(asiento12 == 1){
             btn12.setEnabled(false);
+            btn12.setBackgroundColor(Color.parseColor("#ca4236"));
         }
     }
 }
-
-

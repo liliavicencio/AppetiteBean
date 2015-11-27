@@ -49,6 +49,16 @@ public class Reservacion extends Activity implements OnClickListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+        try{
+            Bundle bolsa = getIntent().getExtras();
+            String asiento =  bolsa.getString("asiento");
+            System.out.println("FINAL: " + asiento);
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reservacion);
         //spinner = (Spinner) findViewById(R.id.spinnerSuc);
@@ -87,11 +97,33 @@ public class Reservacion extends Activity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
+
+        String hours = String.valueOf(hour_x);
+        String minutes = String.valueOf(minute_x);
+
+        String hours2 = String.valueOf(hour_y);
+        String minutes2 = String.valueOf(minute_y);
+
+        String year_ = String.valueOf(year);
+        String month_ = String.valueOf(month);
+        String day_ = String.valueOf(day);
+
+        String time = hours + ":" + minutes + ":00";
+        String time2 = hours2 + ":" + minutes2 + ":00";
+
+        String date = year + "-" + month + "-" + day;
+
         Intent intent;
         switch (v.getId()) {
             case R.id.btnAsiento:
-                //intent = new Intent(this, Asientos.class);
-                intent = new Intent(this, ImageTest.class);
+                intent = new Intent(this, AsientosModel.class);
+
+                Bundle bolsa = new Bundle();
+                bolsa.putString("time",time);
+                bolsa.putString("time2",time2);
+                bolsa.putString("date",date);
+                intent.putExtras(bolsa);
+
                 startActivity(intent);
                 break;
             case R.id.btnMenuOpciones:
@@ -146,7 +178,7 @@ public class Reservacion extends Activity implements OnClickListener {
         public void onDateSet(DatePicker view, int selectedYear,
                               int selectedMonth, int selectedDay) {
             year = selectedYear;
-            month = selectedMonth;
+            month = selectedMonth + 1;
             day = selectedDay;
 
             // set selected date into textview
@@ -195,7 +227,7 @@ public class Reservacion extends Activity implements OnClickListener {
                 myDialog = new DatePickerDialog(this, datePickerListener, year, month,day);
                 break;
             case TIME_DIALOG_ID2:
-                myDialog = new TimePickerDialog(Reservacion.this, eTimePickerListner, hour_x, minute_x,false);
+                myDialog = new TimePickerDialog(Reservacion.this, eTimePickerListner, hour_y, minute_y,false);
                 actual = TIME_DIALOG_ID2;
                 break;
               }

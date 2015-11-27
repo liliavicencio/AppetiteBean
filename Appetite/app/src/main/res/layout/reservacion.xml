@@ -2,7 +2,9 @@
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent">
+    android:layout_height="fill_parent"
+    android:fillViewport="false">
+
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="fill_parent"
     android:layout_height="wrap_content"
@@ -38,8 +40,7 @@
         android:id="@+id/lblFechaResv"
         android:textAlignment="center"
         android:foregroundGravity="top|left"
-        android:layout_column="0"
-        />
+        android:layout_column="0" />
 
     <TextView
         android:id="@+id/dispFecha"
@@ -64,7 +65,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="22sp"
         android:layout_marginRight="22sp"
-        android:text="@string/rsv_fecha" />
+        android:text="@string/rsv_fecha"
+        android:textColor="#ffffff"
+        android:background="#1bcaae" />
 
     <TextView
         android:layout_width="100dp"
@@ -81,7 +84,6 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="22sp"
         android:layout_marginRight="22sp"
-        android:text=""
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
@@ -92,7 +94,9 @@
         android:layout_marginRight="22sp"
         android:text="@string/btn_horarioEntrada"
         android:id="@+id/btnTimerEntrada"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:background="#1bcaae" />
 
     <TextView
         android:layout_width="100dp"
@@ -120,7 +124,9 @@
         android:layout_marginRight="22sp"
         android:text="@string/btn_horarioSalida"
         android:id="@+id/btnTimerSalida"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:background="#1bcaae" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -141,7 +147,10 @@
             android:text="-"
             android:id="@+id/btnRestar"
             android:layout_weight="1"
-            android:layout_gravity="left" />
+            android:layout_gravity="left"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:background="#1bcaae" />
 
         <TextView
             android:layout_width="fill_parent"
@@ -152,7 +161,8 @@
             android:text="0"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textColor="#ffffff" />
 
         <Button
             android:layout_width="fill_parent"
@@ -160,7 +170,10 @@
             android:text="+"
             android:id="@+id/btnSumar"
             android:layout_weight="1"
-            android:layout_gravity="right"/>
+            android:layout_gravity="right"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:background="#1bcaae" />
 
     </LinearLayout>
 
@@ -173,21 +186,26 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginLeft="22sp"
         android:layout_marginRight="22sp"
         android:id="@+id/btnAsiento"
         android:text="@string/btn_asiento"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:textColor="#ffffff"
+        android:background="#1bcaae" />
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
         android:layout_marginLeft="22sp"
         android:layout_marginRight="22sp"
         android:id="@+id/btnMenuOpciones"
         android:text="@string/menu_opciones"
-        android:onClick="onClick" />
+        android:onClick="onClick"
+        android:textColor="#ffffff"
+        android:background="#1bcaae"
+        android:layout_marginTop="10dp" />
 
 </TableLayout>
 </ScrollView>

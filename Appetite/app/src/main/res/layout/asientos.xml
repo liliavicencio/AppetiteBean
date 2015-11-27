@@ -11,8 +11,8 @@
         android:text="Puerta Principal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="26dp"
-        android:layout_alignParentBottom="true"
+        android:layout_marginTop="31dp"
+        android:layout_below="@+id/button11"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -20,8 +20,9 @@
         android:text="Mesas del Restaurante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="18dp" />
+        android:layout_marginTop="21dp" />
 
     <Button
         android:layout_width="wrap_content"
@@ -32,7 +33,9 @@
         android:layout_below="@+id/textView1"
         android:layout_toLeftOf="@+id/textView1"
         android:layout_toStartOf="@+id/textView1"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#1bcaae"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -41,7 +44,9 @@
         android:id="@+id/button2"
         android:layout_alignTop="@+id/button1"
         android:layout_centerHorizontal="true"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#1bcaae"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -51,7 +56,9 @@
         android:layout_alignTop="@+id/button2"
         android:layout_toRightOf="@+id/textView1"
         android:layout_toEndOf="@+id/textView1"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#1bcaae"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -62,7 +69,9 @@
         android:layout_alignLeft="@+id/button1"
         android:layout_alignStart="@+id/button1"
         android:layout_marginTop="27dp"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#1bcaae"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -71,7 +80,9 @@
         android:id="@+id/button5"
         android:layout_alignBottom="@+id/button4"
         android:layout_centerHorizontal="true"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#1bcaae"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -81,7 +92,9 @@
         android:layout_alignTop="@+id/button5"
         android:layout_alignLeft="@+id/button3"
         android:layout_alignStart="@+id/button3"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#1bcaae"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -92,7 +105,9 @@
         android:layout_toLeftOf="@+id/textView1"
         android:layout_toStartOf="@+id/textView1"
         android:layout_marginTop="23dp"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#1bcaae"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -102,7 +117,9 @@
         android:layout_alignTop="@+id/button7"
         android:layout_alignLeft="@+id/button5"
         android:layout_alignStart="@+id/button5"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#1bcaae"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -112,7 +129,9 @@
         android:layout_alignBottom="@+id/button8"
         android:layout_alignLeft="@+id/button6"
         android:layout_alignStart="@+id/button6"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#1bcaae"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -123,7 +142,9 @@
         android:layout_below="@+id/button7"
         android:layout_alignLeft="@+id/button7"
         android:layout_alignStart="@+id/button7"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#1bcaae"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -133,7 +154,9 @@
         android:layout_alignTop="@+id/button10"
         android:layout_alignLeft="@+id/button8"
         android:layout_alignStart="@+id/button8"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#1bcaae"
+        android:textColor="#ffffff" />
 
     <Button
         android:layout_width="wrap_content"
@@ -143,6 +166,8 @@
         android:layout_alignTop="@+id/button11"
         android:layout_alignLeft="@+id/button9"
         android:layout_alignStart="@+id/button9"
-        android:onClick="onClick"/>
+        android:onClick="onClick"
+        android:background="#1bcaae"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>
