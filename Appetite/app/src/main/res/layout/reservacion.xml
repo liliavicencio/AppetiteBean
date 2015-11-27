@@ -75,6 +75,15 @@
         android:textAlignment="center"
         android:foregroundGravity="top|left" />
 
+    <TextView
+        android:id="@+id/dispHE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
@@ -83,6 +92,34 @@
         android:layout_marginRight="22sp"
         android:text="@string/btn_horarioEntrada"
         android:id="@+id/btnTimerEntrada"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/horario_salida"
+        android:id="@+id/lblHorarioSalida"
+        android:textAlignment="center"
+        android:foregroundGravity="top|left" />
+
+    <TextView
+        android:id="@+id/dispHS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:text="@string/btn_horarioSalida"
+        android:id="@+id/btnTimerSalida"
         android:layout_centerHorizontal="true" />
 
     <TextView

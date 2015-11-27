@@ -1,6 +1,7 @@
 package com.appetite.appetite.model;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
@@ -12,7 +13,6 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.appetite.appetite.R;
 
@@ -24,9 +24,15 @@ import java.util.Calendar;
 public class Reservacion extends Activity implements OnClickListener {
     //Spinner spinner;
 
-    static final int TIME_DIALOG_ID=0;//timepicker
+    static final int TIME_DIALOG_ID1=1;//timepicker
+    static final int TIME_DIALOG_ID2=2;//timepicker
     int hour_x;//timepicker
     int minute_x;//timepicker
+    int hour_y;
+    int minute_y;
+    int actual;
+    public TextView dispHE;
+    public TextView dispHS;
 
     /*Date Picker*/
     private TextView disp_Fecha;
@@ -46,13 +52,15 @@ public class Reservacion extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.reservacion);
         //spinner = (Spinner) findViewById(R.id.spinnerSuc);
-        showTimePickerDialog();//timepicker
+        showTimePickerDialog();
         setCurrentDateOnView();
         showDatePickerDialog();
         counter = 0;
         add = (Button) findViewById(R.id.btnSumar);
         sub = (Button) findViewById(R.id.btnRestar);
         final TextView textViewResult=(TextView)findViewById(R.id.total_personas);
+        dispHE = (TextView)findViewById(R.id.dispHE);
+        dispHS = (TextView)findViewById(R.id.dispHS);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +98,7 @@ public class Reservacion extends Activity implements OnClickListener {
                 intent = new Intent(this, MenuOpciones.class);
                 startActivity(intent);
                 break;
+
         }
     }
 
@@ -130,48 +139,6 @@ public class Reservacion extends Activity implements OnClickListener {
         dpResult.init(year, month, day, null);
     }
 
-    //Time Picker 1
-    public void showTimePickerDialog(){
-       Button btn1 = (Button) findViewById(R.id.btnTimerEntrada);
-        btn1.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        showDialog(TIME_DIALOG_ID);
-                    }
-                }
-        );
-    }
-
-    @Override
-    protected Dialog onCreateDialog(int id){
-        switch (id){
-            case TIME_DIALOG_ID:
-            return new TimePickerDialog(Reservacion.this, eTimePickerListner, hour_x, minute_x,false);
-
-            case DATE_DIALOG_ID:
-                return new DatePickerDialog(this, datePickerListener,
-                        year, month,day);
-
-            /*case TIME2_DIALOG_ID:
-                return  new TimePickerDialog(Reservacion.this,sTimePickerListner, hour_y, minute_y, false);*/
-        }
-
-        return null;
-    }
-
-
-    protected TimePickerDialog.OnTimeSetListener eTimePickerListner = new TimePickerDialog.OnTimeSetListener(){
-        @Override
-        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            hour_x = hourOfDay;
-            minute_x = minute;
-            Toast.makeText(Reservacion.this, "Hora: " + hour_x + " Minutos: " + minute_x, Toast.LENGTH_LONG).show();
-        }
-    };
-
-
-    //TIME PICKER ENDS
     private DatePickerDialog.OnDateSetListener datePickerListener
             = new DatePickerDialog.OnDateSetListener() {
 
@@ -193,8 +160,80 @@ public class Reservacion extends Activity implements OnClickListener {
         }
     };
 
+    //Time Picker 1
+    public void showTimePickerDialog(){
+        Button btn1 = (Button) findViewById(R.id.btnTimerEntrada);
+        btn1.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showDialog(TIME_DIALOG_ID1);
+                    }
+                }
+        );
+        Button btn2 = (Button) findViewById(R.id.btnTimerSalida);
+        btn2.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        showDialog(TIME_DIALOG_ID2);
+                    }
+                }
+        );
+    }
 
-    /*void loadSpinner() {
+    AlertDialog myDialog = null;
+
+    @Override
+    protected Dialog onCreateDialog(int id){
+        switch (id){
+            case TIME_DIALOG_ID1:
+                myDialog = new TimePickerDialog(Reservacion.this, eTimePickerListner, hour_x, minute_x,false);
+                actual = TIME_DIALOG_ID1;
+                break;
+            case DATE_DIALOG_ID:
+                myDialog = new DatePickerDialog(this, datePickerListener, year, month,day);
+                break;
+            case TIME_DIALOG_ID2:
+                myDialog = new TimePickerDialog(Reservacion.this, eTimePickerListner, hour_x, minute_x,false);
+                actual = TIME_DIALOG_ID2;
+                break;
+              }
+
+        return myDialog;
+    }
+
+
+    private static String pad(int c) {
+        if (c >= 10)
+            return String.valueOf(c);
+        else
+            return "0" + String.valueOf(c);
+    }
+
+    protected TimePickerDialog.OnTimeSetListener eTimePickerListner = new TimePickerDialog.OnTimeSetListener(){
+        @Override
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            if(actual == TIME_DIALOG_ID1){
+                hour_x = hourOfDay;
+                minute_x = minute;
+                dispHE.setText(new StringBuilder().append(pad(hour_x)).append(":").append(pad(minute_x)));
+            }
+
+            if(actual == TIME_DIALOG_ID2){
+                hour_y = hourOfDay;
+                minute_y = minute;
+                dispHS.setText(new StringBuilder().append(pad(hour_y)).append(":").append(pad(minute_y)));
+            }
+        }
+    };
+
+
+    //TIME PICKER ENDS
+
+/*
+
+    void loadSpinner() {
         SucursalController suc = new SucursalController();
         String nombre;
         nombre = suc.doInBackground("http://appetite.esy.es/File/SpinnerSucursal.php","sucursal_array","nombre");
