@@ -27,7 +27,7 @@ public class MenuOpciones extends Activity {
         pantalla2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MenuOpciones.this, Ticket.class));
+                startActivity(new Intent(MenuOpciones.this, Pago.class));
 
             }
 
@@ -104,4 +104,5 @@ public class MenuOpciones extends Activity {
         });
 
     }
+
 }
