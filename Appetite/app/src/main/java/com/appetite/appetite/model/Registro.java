@@ -8,17 +8,13 @@ import java.io.Serializable;
 /**
  * Created by Alex on 27/11/2015.
  */
-public class Registro extends JSONSerialize<Registro> {
+public class Registro  {
     @Expose
     private String numeroAsiento;
     @Expose
     private int numeroPersonas;
     @Expose
     private int hora;
-
-    public Registro() {
-        super(Registro.class);
-    }
 
     public String getNumeroAsiento() {
         return numeroAsiento;
