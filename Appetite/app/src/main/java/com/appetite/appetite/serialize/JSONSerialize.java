@@ -10,6 +10,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -38,7 +39,13 @@ public class JSONSerialize<T> {
     public T getSerialization(Activity activity, final String key) {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         SharedPreferences preferences = activity.getSharedPreferences(SHARED_REGISTRO, Context.MODE_PRIVATE);
-        return gson.fromJson(preferences.getString(key, ""), entityClass);
+        String json = preferences.getString(key, "");
+
+        if(json.equals("")) {
+            return (T) new Object();
+        }
+
+        return gson.fromJson(json, entityClass);
     }
 
     public void setSerializationList(Activity activity, List<T> list, final String key) {
@@ -52,7 +59,12 @@ public class JSONSerialize<T> {
     public <T> List<T> getSerializationList(Activity activity, final String key, Type t) {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         SharedPreferences preferences = activity.getSharedPreferences(SHARED_REGISTRO, Context.MODE_PRIVATE);
-        return gson.fromJson(preferences.getString(key, ""), t);
+        String json = preferences.getString(key, "");
+
+        if(json.equals("") || json.isEmpty() || json == null) {
+            return new ArrayList<>();
+        }
+        return gson.fromJson(json, t);
     }
 
     public void clear(Activity activity, final String key) {

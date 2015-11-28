@@ -8,20 +8,14 @@ import android.util.Base64;
  * Created by Alex on 14/10/2015.
  */
 public class Image {
-    private int id;
     private Bitmap image;
 
-    public Image(int id, String imageCode) {
-        setId(id);
-        setImage(imageCode);
+    public Image() {
+
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public Image(String imagen) {
+        setImage(imagen);
     }
 
     public Bitmap getImage() {

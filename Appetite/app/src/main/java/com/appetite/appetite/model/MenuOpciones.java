@@ -40,58 +40,63 @@ public class MenuOpciones extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-
-
                 Intent intent = new Intent(getApplicationContext(), Presentacion.class);
-                //  intent.putExtra("posicion", position);
 
                 switch(position)
                 {
                     case 0:
                         MenuOpcion = "Desayunos";
                         intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 1);
                         startActivity(intent);
                         break;
 
                     case 1:
                         MenuOpcion = "Entradas";
                         intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 2);
                         startActivity(intent);
                         break;
 
                     case 2:
                         MenuOpcion = "Ensaladas";
                         intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 3);
                         startActivity(intent);
                         break;
 
                     case 3:
                         MenuOpcion = "Cortes";
                         intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 4);
                         startActivity(intent);
                         break;
 
                     case 4:
                         MenuOpcion = "Hamburguesas";
                         intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 5);
                         startActivity(intent);
                         break;
 
                     case 5:
                         MenuOpcion = "Especialidades";
                         intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 6);
                         startActivity(intent);
                         break;
 
                     case 6:
                         MenuOpcion = "Postres";
                         intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 7);
                         startActivity(intent);
                         break;
 
                     case 7:
                         MenuOpcion = "Bebidas";
                         intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 8);
                         startActivity(intent);
                         break;
                 }

@@ -11,50 +11,44 @@ import android.widget.TextView;
 
 import com.appetite.appetite.R;
 import com.appetite.appetite.model.Image;
+import com.appetite.appetite.model.Menu;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 /**
  * Created by Alex on 14/10/2015.
  */
-public class ImageAdapter extends BaseAdapter {
+public class MenuAdapter extends BaseAdapter {
     private Activity activity;
-    private ArrayList<Image> items;
-    private ArrayList<String> comida;
+    private List<Menu> itemList;
 
-    public ImageAdapter(Activity activity, ArrayList<Image> items, ArrayList<String> comida) {
+    public MenuAdapter(Activity activity, List<Menu> menuList) {
         this.activity = activity;
-        this.items = items;
-        this.comida = comida;
+        this.itemList = menuList;
     }
-
 
     @Override
     public int getCount() {
-        return items.size();
+        return itemList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return items.get(position);
+        return itemList.get(position);
     }
 
     @Override
     public long getItemId(int position) {
-        return items.get(position).getId();
+        return itemList.get(position).getId();
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Image image;
-        View view;
+        View view = convertView;
         ImageView imageView;
-
-        String Comida;
         TextView comidaView;
-
-        view = convertView;
 
         if(convertView == null) {
             LayoutInflater inflater
@@ -62,12 +56,10 @@ public class ImageAdapter extends BaseAdapter {
             view = inflater.inflate(R.layout.image_test, null);
         }
 
-        image = items.get(position);
-        Comida = comida.get(position);
         imageView = (ImageView) view.findViewById(R.id.image);
         comidaView = (TextView) view.findViewById(R.id.comida);
-        imageView.setImageBitmap(image.getImage());
-        comidaView.setText(Comida);
+        imageView.setImageBitmap(itemList.get(position).getImage());
+        comidaView.setText(itemList.get(position).getComida());
 
         return view;
     }
