@@ -192,7 +192,8 @@
         android:text="@string/btn_asiento"
         android:onClick="onClick"
         android:textColor="#ffffff"
-        android:background="#1bcaae" />
+        android:background="#1bcaae"
+        android:enabled="false" />
 
     <Button
         android:layout_width="wrap_content"

@@ -6,6 +6,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -13,6 +14,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.appetite.appetite.R;
 
@@ -23,6 +25,8 @@ import java.util.Calendar;
  */
 public class Reservacion extends Activity implements OnClickListener {
     //Spinner spinner;
+    Button buttonMenu, buttonAsientos;
+    public boolean validaButton;
 
     static final int TIME_DIALOG_ID1=1;//timepicker
     static final int TIME_DIALOG_ID2=2;//timepicker
@@ -41,6 +45,9 @@ public class Reservacion extends Activity implements OnClickListener {
     private int year;
     private int month;
     private int day;
+    private int year1;
+    private int month1;
+    private int day1;
 
     //Personas
     int counter;
@@ -72,12 +79,33 @@ public class Reservacion extends Activity implements OnClickListener {
         dispHE = (TextView)findViewById(R.id.dispHE);
         dispHS = (TextView)findViewById(R.id.dispHS);
 
+        buttonAsientos = (Button) findViewById(R.id.btnAsiento);
+        buttonMenu = (Button) findViewById(R.id.btnMenuOpciones);
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 // Adds 1 to the counter
                 counter = counter + 1;
+                if (counter >= 4) {
+                    counter = 4;
+                }
                 textViewResult.setText(String.valueOf(counter));
+                if (!"".equals(dispHE.getText().toString())
+                        && !"".equals(dispHS.getText().toString())
+                        && counter != 0) {
+                    validaButton = true;
+                    buttonAsientos.setEnabled(true);
+                    buttonMenu.setEnabled(true);
+                    buttonAsientos.setBackgroundColor(Color.parseColor("#1BCAAE"));
+                    buttonMenu.setBackgroundColor(Color.parseColor("#1BCAAE"));
+                } else {
+                    validaButton = false;
+                    buttonMenu.setEnabled(false);
+                    buttonAsientos.setEnabled(false);
+                    buttonAsientos.setBackgroundColor(Color.parseColor("#98C1BA"));
+                    buttonMenu.setBackgroundColor(Color.parseColor("#98C1BA"));
+                }
             }
         });
 
@@ -86,13 +114,46 @@ public class Reservacion extends Activity implements OnClickListener {
             public void onClick(View v) {
                 // Subtract 1 from counter
                 counter = counter - 1;
-                if(counter<=0) {
+                if (counter <= 0) {
                     counter = 0;
                 }
                 textViewResult.setText(String.valueOf(counter));
+                if (!"".equals(dispHE.getText().toString())
+                        && !"".equals(dispHS.getText().toString())
+                        && counter != 0) {
+                    validaButton = true;
+                    buttonAsientos.setEnabled(true);
+                    buttonMenu.setEnabled(true);
+                    buttonAsientos.setBackgroundColor(Color.parseColor("#1BCAAE"));
+                    buttonMenu.setBackgroundColor(Color.parseColor("#1BCAAE"));
+                } else {
+                    validaButton = false;
+                    buttonMenu.setEnabled(false);
+                    buttonAsientos.setEnabled(false);
+                    buttonAsientos.setBackgroundColor(Color.parseColor("#98C1BA"));
+                    buttonMenu.setBackgroundColor(Color.parseColor("#98C1BA"));
+                }
             }
         });
-    }
+
+        if (!"".equals(dispHE.getText().toString())
+                && !"".equals(dispHS.getText().toString())
+                && counter != 0) {
+            validaButton = true;
+            buttonAsientos.setEnabled(true);
+            buttonMenu.setEnabled(true);
+            buttonAsientos.setBackgroundColor(Color.parseColor("#1BCAAE"));
+            buttonMenu.setBackgroundColor(Color.parseColor("#1BCAAE"));
+
+        } else {
+            validaButton = false;
+            buttonMenu.setEnabled(false);
+            buttonAsientos.setEnabled(false);
+            buttonAsientos.setBackgroundColor(Color.parseColor("#98C1BA"));
+            buttonMenu.setBackgroundColor(Color.parseColor("#98C1BA"));
+        }
+
+}
 
 
     @Override
@@ -181,16 +242,53 @@ public class Reservacion extends Activity implements OnClickListener {
             month = selectedMonth + 1;
             day = selectedDay;
 
-            // set selected date into textview
-            disp_Fecha.setText(new StringBuilder().append(month + 1)
-                    .append("-").append(day).append("-").append(year)
-                    .append(" "));
+            //Get current date
+            final Calendar c = Calendar.getInstance();
+            year1 = c.get(Calendar.YEAR);
+            month1 = c.get(Calendar.MONTH) + 1;
+            day1 = c.get(Calendar.DAY_OF_MONTH);
 
-            // set selected date into datepicker also
-            dpResult.init(year, month, day, null);
+
+            if (validaFecha()) {
+                // set selected date into textview
+                disp_Fecha.setText(new StringBuilder().append(month)
+                        .append("-").append(day).append("-").append(year)
+                        .append(" "));
+
+                // set selected date into datepicker also
+                dpResult.init(year, month, day, null);
+            } else {
+                Toast.makeText(getApplicationContext(), "Ingrese una fecha vÃ¡lida por favor.",
+                        Toast.LENGTH_SHORT).show();
+            }
+
 
         }
     };
+
+    private boolean validaFecha() {
+        boolean valida = false;
+        if (year1 == year) {
+            if (month == month1) {
+                if (day == day1) {
+                    valida = true;
+                } else if (day > day1) {
+                    valida = true;
+                } else {
+                    valida = false;
+                }
+            } else if (month > month1) {
+                valida = true;
+            } else {
+                valida = false;
+            }
+        } else if (year > year1) {
+            valida = true;
+        } else {
+            valida = false;
+        }
+        return valida;
+    }
 
     //Time Picker 1
     public void showTimePickerDialog(){
@@ -246,19 +344,82 @@ public class Reservacion extends Activity implements OnClickListener {
     protected TimePickerDialog.OnTimeSetListener eTimePickerListner = new TimePickerDialog.OnTimeSetListener(){
         @Override
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
-            if(actual == TIME_DIALOG_ID1){
+            String validaEntrada = "Ingrese una hora menor a la hora de salida.";
+            String validaSalida = "Ingrese una hora mayor a la hora de salida.";
+            if (actual == TIME_DIALOG_ID1) {
                 hour_x = hourOfDay;
                 minute_x = minute;
-                dispHE.setText(new StringBuilder().append(pad(hour_x)).append(":").append(pad(minute_x)));
+                if (hour_y != 0) {
+                    if (validaHora(validaEntrada) == true) {
+                        dispHE.setText(new StringBuilder().append(pad(hour_x)).append(":").append(pad(minute_x)));
+                    }
+                }
+                else {
+                    dispHE.setText(new StringBuilder().append(pad(hour_x)).append(":").append(pad(minute_x)));
+                }
             }
-
-            if(actual == TIME_DIALOG_ID2){
+            if (actual == TIME_DIALOG_ID2) {
                 hour_y = hourOfDay;
                 minute_y = minute;
-                dispHS.setText(new StringBuilder().append(pad(hour_y)).append(":").append(pad(minute_y)));
+                if (hour_x == 0) {
+                    /*myAlert.setMessage("Por favor ingrese primero la Hora de Entrada").setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    }).create();
+                    myAlert.show();*/
+                    Toast.makeText(getApplicationContext(), "Ingrese una hora mayor a la hora de entrada.",
+                            Toast.LENGTH_SHORT).show();
+                } else if (validaHora(validaSalida)== true) {
+                    dispHS.setText(new StringBuilder().append(pad(hour_y)).append(":").append(pad(minute_y)));
+                }
             }
+
         }
+
     };
+
+    private boolean validaHora(String mensaje) {
+        boolean valida;
+
+        if (hour_y == hour_x) {
+            if (minute_y >= (minute_x + 30)) {
+                valida = true;
+            } else {
+
+                valida = false;
+                Toast.makeText(getApplicationContext(), mensaje,
+                        Toast.LENGTH_SHORT).show();
+                //SetAlert();
+            }
+        } else if (hour_y > hour_x) {
+            valida = true;
+
+        } else {
+            valida = false;
+            //SetAlert();
+            Toast.makeText(getApplicationContext(), mensaje,
+                    Toast.LENGTH_SHORT).show();
+        }
+
+        return valida;
+    }
+
+   /* public void SetAlert()
+    {
+        AlertDialog.Builder myAlert = new AlertDialog.Builder(Reservacion.this);
+        myAlert.setMessage("Por favor ingrese una hora de salida mayor a la de entrada")
+                .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).create();
+
+        myAlert.show();
+    }*/
+
 
 
     //TIME PICKER ENDS
