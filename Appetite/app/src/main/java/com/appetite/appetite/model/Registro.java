@@ -10,33 +10,43 @@ import java.io.Serializable;
  */
 public class Registro  {
     @Expose
-    private String numeroAsiento;
+    private String time;
     @Expose
-    private int numeroPersonas;
+    private String time2;
     @Expose
-    private int hora;
+    private String date;
+    @Expose
+    private String asiento;
 
-    public String getNumeroAsiento() {
-        return numeroAsiento;
+    public String getTime() {
+        return time;
     }
 
-    public void setNumeroAsiento(String numeroAsiento) {
-        this.numeroAsiento = numeroAsiento;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public int getNumeroPersonas() {
-        return numeroPersonas;
+    public String getTime2() {
+        return time2;
     }
 
-    public void setNumeroPersonas(int numeroPersonas) {
-        this.numeroPersonas = numeroPersonas;
+    public void setTime2(String time2) {
+        this.time2 = time2;
     }
 
-    public int getHora() {
-        return hora;
+    public String getDate() {
+        return date;
     }
 
-    public void setHora(int hora) {
-        this.hora = hora;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getAsiento() {
+        return asiento;
+    }
+
+    public void setAsiento(String asiento) {
+        this.asiento = asiento;
     }
 }

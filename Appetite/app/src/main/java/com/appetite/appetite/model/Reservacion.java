@@ -5,9 +5,12 @@ import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -17,6 +20,9 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.appetite.appetite.R;
+import com.appetite.appetite.serialize.JSONSerialize;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.Calendar;
 
@@ -27,7 +33,7 @@ public class Reservacion extends Activity implements OnClickListener {
     //Spinner spinner;
     Button buttonMenu, buttonAsientos;
     public boolean validaButton;
-
+    private static final String SHARED_REGISTRO = "Reservacion";
     static final int TIME_DIALOG_ID1=1;//timepicker
     static final int TIME_DIALOG_ID2=2;//timepicker
     int hour_x;//timepicker
@@ -84,7 +90,7 @@ public class Reservacion extends Activity implements OnClickListener {
         dispHS = (TextView)findViewById(R.id.dispHS);
 
         buttonAsientos = (Button) findViewById(R.id.btnAsiento);
-        buttonMenu = (Button) findViewById(R.id.btnMenuOpciones);
+        //buttonMenu = (Button) findViewById(R.id.btnMenuOpciones);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,16 +128,16 @@ public class Reservacion extends Activity implements OnClickListener {
                 && counter != 0) {
             validaButton = true;
             buttonAsientos.setEnabled(true);
-            buttonMenu.setEnabled(true);
+            //buttonMenu.setEnabled(true);
             buttonAsientos.setBackgroundColor(Color.parseColor("#1BCAAE"));
-            buttonMenu.setBackgroundColor(Color.parseColor("#1BCAAE"));
+            //buttonMenu.setBackgroundColor(Color.parseColor("#1BCAAE"));
 
         } else {
             validaButton = false;
-            buttonMenu.setEnabled(false);
+            //buttonMenu.setEnabled(false);
             buttonAsientos.setEnabled(false);
             buttonAsientos.setBackgroundColor(Color.parseColor("#98C1BA"));
-            buttonMenu.setBackgroundColor(Color.parseColor("#98C1BA"));
+            //buttonMenu.setBackgroundColor(Color.parseColor("#98C1BA"));
         }
     }
 
@@ -158,19 +164,31 @@ public class Reservacion extends Activity implements OnClickListener {
         switch (v.getId()) {
             case R.id.btnAsiento:
                 intent = new Intent(this, AsientosModel.class);
-
                 Bundle bolsa = new Bundle();
                 bolsa.putString("time",time);
                 bolsa.putString("time2",time2);
                 bolsa.putString("date",date);
                 intent.putExtras(bolsa);
+                /*
+                Registro registro = new Registro();
+                registro.setTime(time);
+                registro.setTime(time2);
+                registro.setTime(date);
+
+                Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+                SharedPreferences preferences = getSharedPreferences(SHARED_REGISTRO, Context.MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("registro", gson.toJson(registro));
+                Log.i("serializacion", gson.toJson(registro));
+                editor.commit();*/
+
 
                 startActivity(intent);
                 break;
-            case R.id.btnMenuOpciones:
+            /*case R.id.btnMenuOpciones:
                 intent = new Intent(this, MenuOpciones.class);
                 startActivity(intent);
-                break;
+                break;*/
 
         }
     }
