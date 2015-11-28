@@ -10,6 +10,7 @@ import com.appetite.appetite.R;
 import com.appetite.appetite.connection.ServerConnection;
 import com.appetite.appetite.model.Image;
 import com.appetite.appetite.adapter.ImageAdapter;
+import com.appetite.appetite.model.Ticket;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 /**
  * Created by Alex on 14/10/2015.
  */
-public class ImageController extends AsyncTask<String, String, String> {
+public class ImageController extends AsyncTask<String, String, String>  {
 
     private Activity activity;
     private ArrayList<Image> imageList = new ArrayList<>();
@@ -88,6 +89,8 @@ public class ImageController extends AsyncTask<String, String, String> {
                 @Override
                 public void run() {
                     listView.setAdapter(new ImageAdapter(activity, imageList, comidaList));
+
+
                 }
             });
         }

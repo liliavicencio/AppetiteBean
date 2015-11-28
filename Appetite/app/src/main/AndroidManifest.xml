@@ -42,6 +42,8 @@
         <activity android:name=".model.ImageTest" />
         <activity android:name=".ejemplo" >
         </activity>
+
+
     </application>
 
 </manifest>
