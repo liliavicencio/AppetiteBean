@@ -9,6 +9,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.List;
 
 /**
@@ -20,7 +21,6 @@ import java.util.List;
 public class JSONSerialize<T> {
 
     private static final String SHARED_REGISTRO = "Reservacion";
-    private static final String TASK = "Task";
     private Class<T> entityClass;
 
     public JSONSerialize(Class<T> entityClass) {
@@ -38,7 +38,7 @@ public class JSONSerialize<T> {
     public T getSerialization(Activity activity, final String key) {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         SharedPreferences preferences = activity.getSharedPreferences(SHARED_REGISTRO, Context.MODE_PRIVATE);
-        return gson.fromJson(preferences.getString(TASK, ""), entityClass);
+        return gson.fromJson(preferences.getString(key, ""), entityClass);
     }
 
     public void setSerializationList(Activity activity, List<T> list, final String key) {
@@ -49,10 +49,10 @@ public class JSONSerialize<T> {
         editor.commit();
     }
 
-    public String getSerializationList(Activity activity, final String key) {
+    public <T> List<T> getSerializationList(Activity activity, final String key, Type t) {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         SharedPreferences preferences = activity.getSharedPreferences(SHARED_REGISTRO, Context.MODE_PRIVATE);
-        return preferences.getString(key, "");
+        return gson.fromJson(preferences.getString(key, ""), t);
     }
 
     public void clear(Activity activity, final String key) {
