@@ -161,8 +161,7 @@
             android:text="0"
             android:layout_weight="1"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:textColor="#ffffff" />
+            android:gravity="center" />
 
         <Button
             android:layout_width="fill_parent"
