@@ -1,18 +1,13 @@
 package com.appetite.appetite.adapter;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appetite.appetite.R;
-import com.appetite.appetite.model.Presentacion;
 
 /**
  * Created by Dmoreno on 07/10/15.
@@ -66,6 +61,4 @@ public class ListViewAdapter extends BaseAdapter {
 
         return itemView;
     }
-    //Case para la seleccion de menus principal 2015 / 11 /01
-
 }

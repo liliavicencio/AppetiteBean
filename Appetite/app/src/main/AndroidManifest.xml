@@ -42,8 +42,6 @@
         <activity android:name=".model.ImageTest" />
         <activity android:name=".ejemplo" >
         </activity>
-
-
         <activity
             android:name=".model.AsientosModel"
             android:label="Asientos" >

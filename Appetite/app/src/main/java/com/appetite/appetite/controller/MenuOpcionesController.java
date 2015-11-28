@@ -2,7 +2,6 @@ package com.appetite.appetite.controller;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.widget.ListView;
@@ -46,7 +45,7 @@ public class MenuOpcionesController  extends AsyncTask<String, String, String> {
     //Variable de comidas  18/10/2015
     private String comida_;
 
-    public MenuOpcionesController(final Activity activity) {
+    public MenuOpcionesController(Activity activity) {
         this.activity = activity;
         listView = (ListView) activity.findViewById(R.id.list_menu_opciones);
     }
@@ -106,7 +105,6 @@ public class MenuOpcionesController  extends AsyncTask<String, String, String> {
         return null;
     }
 
-
     /**
      * @param file_url
      * @private Updating UI from Background Thread and parsed JSON data into ListView
@@ -119,10 +117,8 @@ public class MenuOpcionesController  extends AsyncTask<String, String, String> {
                 @Override
                 public void run() {
                     listView.setAdapter(new ImageAdapter(activity, imageList, comidaList));
-
                 }
             });
         }
     }
-
 }
