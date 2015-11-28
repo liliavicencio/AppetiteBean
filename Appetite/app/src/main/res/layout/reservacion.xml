@@ -1,105 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:fillViewport="false">
+
 <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
     android:weightSum="1">
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Sucursal:"
-            android:id="@+id/lblSucursal"
-            android:layout_gravity="top|left|center_vertical"
-            android:gravity="top|left|center_vertical|start"
-            android:textStyle="normal"
-            android:typeface="sans"
-            android:labelFor="@android:color/black" />
-    </TableRow>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/sucursal_label"
+        android:id="@+id/lblSucursal"
+        android:layout_gravity="top|left|center_vertical"
+        android:gravity="top|left|center_vertical|start"
+        android:textStyle="normal"
+        android:typeface="sans"
+        android:labelFor="@android:color/black" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerSuc"
+        android:spinnerMode="dropdown"
+        android:entries="@array/sucursal_array"
+        android:prompt="@string/sucursal_prompt">
+    </Spinner>
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Horario de Entrada:"
-            android:id="@+id/textView"
-            android:textAlignment="center"
-            android:foregroundGravity="top|left"
-            android:layout_column="0" />
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/resv_fecha"
+        android:id="@+id/lblFechaResv"
+        android:textAlignment="center"
+        android:foregroundGravity="top|left"
+        android:layout_column="0" />
 
-    </TableRow>
+    <TextView
+        android:id="@+id/dispFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <DatePicker
+        android:id="@+id/fecha_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="16dp"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:visibility="invisible" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Personas"
-            android:id="@+id/textView3"
-            android:layout_column="0" />
-    </TableRow>
+    <Button
+        android:id="@+id/btn_cambioFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:text="@string/rsv_fecha"
+        android:textColor="#ffffff"
+        android:background="#1bcaae" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/horario_entrada"
+        android:id="@+id/lblHorarioEntrada"
+        android:textAlignment="center"
+        android:foregroundGravity="top|left" />
 
-        <TextView
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Horario de Salida:"
-            android:id="@+id/textView4"
-            android:layout_column="0"
-            android:textStyle="normal" />
-    </TableRow>
+    <TextView
+        android:id="@+id/dispHE"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:text="@string/btn_horarioEntrada"
+        android:id="@+id/btnTimerEntrada"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:background="#1bcaae" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Se cobrara extra si se permanece más de 2 horas."
-            android:id="@+id/textView5"
-            android:layout_column="0" />
-    </TableRow>
+    <TextView
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/horario_salida"
+        android:id="@+id/lblHorarioSalida"
+        android:textAlignment="center"
+        android:foregroundGravity="top|left" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/dispHS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:text=""
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:text="@string/btn_horarioSalida"
+        android:id="@+id/btnTimerSalida"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ffffff"
+        android:background="#1bcaae" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/personas_label"
+        android:id="@+id/lblPersonas" />
+
+    <LinearLayout
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
         <Button
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="22sp"
-            android:layout_marginRight="22sp"
-            android:id="@+id/btnAsiento"
-            android:text="Asiennto"
-            android:onClick="onClick" />
-    </TableRow>
+            android:text="-"
+            android:id="@+id/btnRestar"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:background="#1bcaae" />
 
-    <TableRow
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <Button
-            android:layout_width="wrap_content"
+        <TextView
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="22sp"
-            android:layout_marginRight="22sp"
-            android:id="@+id/btnMenuOpciones"
-            android:text="Menu Opciones"
-            android:onClick="onClick" />
-    </TableRow>
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/total_personas"
+            android:textSize="20dp"
+            android:text="0"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="+"
+            android:id="@+id/btnSumar"
+            android:layout_weight="1"
+            android:layout_gravity="right"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:background="#1bcaae" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/nota_reservacion"
+        android:id="@+id/notaSalida" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:id="@+id/btnAsiento"
+        android:text="@string/btn_asiento"
+        android:onClick="onClick"
+        android:textColor="#ffffff"
+        android:background="#1bcaae" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:id="@+id/btnMenuOpciones"
+        android:text="@string/menu_opciones"
+        android:onClick="onClick"
+        android:textColor="#ffffff"
+        android:background="#1bcaae"
+        android:layout_marginTop="10dp" />
+
 </TableLayout>
+</ScrollView>

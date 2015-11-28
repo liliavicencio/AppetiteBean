@@ -44,6 +44,15 @@
         </activity>
 
 
+        <activity
+            android:name=".model.AsientosModel"
+            android:label="Asientos" >
+            <intent-filter>
+                <action android:name="android.intent.action.AsientosModel" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
