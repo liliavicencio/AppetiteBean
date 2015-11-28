@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Indigo"
+    android:weightSum="1">
+
+    <TextView
+        style="@style/AppTheme.Text_Pago"
+        android:layout_height="wrap_content"
+        android:layout_weight=".04"
+        android:text="@string/list_product"/>
+
+    <ScrollView
+        android:background="@drawable/rounded_corner"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".90"
+        android:layout_marginLeft="22sp"
+        android:layout_marginRight="22sp"
+        android:layout_marginBottom="5sp">
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </ListView>
+    </ScrollView>
+
+    <LinearLayout
+        android:gravity="bottom"
+        android:layout_weight=".03"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            style="@style/AppTheme.Text_Pago"
+            android:textSize="22sp"
+            android:layout_marginRight="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:text="@string/confimation_code"/>
+
+        <TextView
+            style="@style/AppTheme.Text_Pago"
+            android:textSize="20sp"
+            android:gravity="right"
+            android:layout_marginLeft="0dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/code"/>
+    </LinearLayout>
+</LinearLayout>

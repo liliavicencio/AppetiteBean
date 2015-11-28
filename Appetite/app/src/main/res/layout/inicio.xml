@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:weightSum="1">
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="59dp"
+        android:text="Reservar"
+        android:id="@+id/btnReservar"
+        android:layout_gravity="fill_horizontal|top|center"
+        android:background="#d00505"
+        android:clickable="true"
+        android:enabled="true"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:typeface="sans"
+        android:visibility="visible"
+        android:layout_columnSpan="5"
+        android:onClick="onClick"
+        android:capitalize="words"
+        style="@style/TextAppearance.AppCompat.Menu" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imgPromo1"
+            android:layout_weight="1"
+            android:layout_gravity="left"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ofertas"/>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/imgPromo2"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
+            android:src="@drawable/cheers"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/imgPromo3"
+        android:scaleType="centerCrop"
+        android:src="@drawable/restaurant"/>
+
+
+</TableLayout>
