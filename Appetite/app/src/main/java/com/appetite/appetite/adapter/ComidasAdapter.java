@@ -2,7 +2,6 @@ package com.appetite.appetite.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +12,8 @@ import android.widget.TextView;
 import com.appetite.appetite.R;
 import com.appetite.appetite.model.Comida;
 import com.appetite.appetite.serialize.JSONSerialize;
-import com.google.gson.reflect.TypeToken;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
+import java.util.AbstractCollection;
 import java.util.List;
 
 /**

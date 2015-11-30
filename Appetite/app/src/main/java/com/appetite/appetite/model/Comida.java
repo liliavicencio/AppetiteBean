@@ -5,32 +5,30 @@ import com.google.gson.annotations.Expose;
 /**
  * Created by Alex on 27/11/2015.
  */
-public class Comida extends Image{
+public class Comida extends Image {
     @Expose
     private int id;
     @Expose
     private int posicionMenu;
     @Expose
     private String categoria;
+    @Expose
     private String descripcion;
     @Expose
     private String precio;
     @Expose
     private String cantidad;
+    @Expose
     private boolean seleccionado;
 
     public Comida() {
-
-    }
-
-    public Comida(int id, int posicionMenu, String categoria, String precio, String cantidad,
-                  String imagen) {
-        super(imagen);
-        this.setId(id);
-        this.setPosicionMenu(posicionMenu);
-        this.setCategoria(categoria);
-        this.setPrecio(precio);
-        this.setCantidad(cantidad);
+        this.id = 0;
+        this.posicionMenu = 0;
+        this.categoria = "";
+        this.descripcion = "";
+        this.precio = "";
+        this.cantidad = "";
+        this.seleccionado = false;
     }
 
     public int getId() {

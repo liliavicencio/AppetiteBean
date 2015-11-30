@@ -1,4 +1,4 @@
-package serialize;
+package com.appetite.appetite.serialize;
 
 import android.app.Activity;
 import android.content.Context;
