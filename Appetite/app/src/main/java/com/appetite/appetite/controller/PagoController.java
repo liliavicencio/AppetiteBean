@@ -1,4 +1,4 @@
-package com.appetite.appetite.model;
+package com.appetite.appetite.controller;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,7 +12,7 @@ import com.appetite.appetite.R;
 /**
  * Created by Alex on 05/10/2015.
  */
-public class Pago extends Activity implements OnClickListener {
+public class PagoController extends Activity implements OnClickListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -25,7 +25,7 @@ public class Pago extends Activity implements OnClickListener {
 
         switch (v.getId()) {
             case R.id.confirm_pay_button:
-                Intent intent = new Intent(this, ConfimacionPago.class);
+                Intent intent = new Intent(this, ConfimacionPagoController.class);
                 startActivity(intent);
                 break;
             case R.id.paypal_radio:

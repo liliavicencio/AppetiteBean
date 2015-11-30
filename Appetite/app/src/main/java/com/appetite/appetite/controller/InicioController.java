@@ -1,4 +1,4 @@
-package com.appetite.appetite.model;
+package com.appetite.appetite.controller;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import com.appetite.appetite.R;
 /**
  * Created by Alex on 10/10/2015.
  */
-public class Inicio extends Activity implements OnClickListener {
+public class InicioController extends Activity implements OnClickListener {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -24,7 +24,7 @@ public class Inicio extends Activity implements OnClickListener {
 
         switch (v.getId()) {
             case R.id.btnReservar:
-                Intent intent = new Intent(this, Reservacion.class);
+                Intent intent = new Intent(this, ReservacionController.class);
                 startActivity(intent);
                 break;
         }

@@ -1,4 +1,4 @@
-package com.appetite.appetite.model;
+package com.appetite.appetite.service;
 
 import android.os.AsyncTask;
 
@@ -11,7 +11,7 @@ import org.json.JSONObject;
 /**
  * Created by Lily on 27/10/2015.
  */
-public class SucursalController extends AsyncTask<String, String, String>
+public class SucursalService extends AsyncTask<String, String, String>
 {
     private final String URL = "http://appetite.esy.es/File/SpinnerSucursal.php";
     private final String TAG_ARRAY_MENU = "sucursal_array";

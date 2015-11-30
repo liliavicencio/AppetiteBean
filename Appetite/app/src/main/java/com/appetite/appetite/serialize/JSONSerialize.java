@@ -1,13 +1,11 @@
-package com.appetite.appetite.serialize;
+package serialize;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
@@ -22,6 +20,7 @@ import java.util.List;
 public class JSONSerialize<T> {
 
     private static final String SHARED_REGISTRO = "Reservacion";
+    private static final String EMPTY_JSON_LIST = "[]";
     private Class<T> entityClass;
 
     public JSONSerialize(Class<T> entityClass) {
@@ -52,19 +51,23 @@ public class JSONSerialize<T> {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         SharedPreferences preferences = activity.getSharedPreferences(SHARED_REGISTRO, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
+        if(list.isEmpty()) {
+            list = new ArrayList<T>();
+        }
         editor.putString(key, gson.toJson(list));
         editor.commit();
     }
 
     public <T> List<T> getSerializationList(Activity activity, final String key, Type t) {
-        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().serializeNulls().create();
         SharedPreferences preferences = activity.getSharedPreferences(SHARED_REGISTRO, Context.MODE_PRIVATE);
         String json = preferences.getString(key, "");
 
-        if(json.equals("") || json.isEmpty() || json == null) {
-            return new ArrayList<>();
+        if(json.equals(EMPTY_JSON_LIST)) {
+            return new ArrayList<T>();
+        } else {
+            return gson.fromJson(json, t);
         }
-        return gson.fromJson(json, t);
     }
 
     public void clear(Activity activity, final String key) {

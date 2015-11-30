@@ -1,119 +1,108 @@
 package com.appetite.appetite.controller;
-
+import android.content.Intent;
 import android.app.Activity;
-import android.app.ProgressDialog;
-import android.graphics.Bitmap;
-import android.os.AsyncTask;
-import android.util.Log;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.appetite.appetite.R;
-import com.appetite.appetite.adapter.MenuAdapter;
-import com.appetite.appetite.connection.ServerConnection;
-import com.appetite.appetite.model.Menu;
+import com.appetite.appetite.service.MenuOpcionesService;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+public class MenuOpcionesController extends Activity {
+    String MenuOpcion;
 
-import java.util.ArrayList;
-import java.util.List;
-
-/**
- * Created by Dmoreno on 18/10/15.
- */
-public class MenuOpcionesController extends AsyncTask<String, String, String> {
-
-    private Activity activity;
-    private List<Menu> menuList = new ArrayList<>();
-    private ListView listView;
-
-    // url to get all products list
-    private final String URL_IMAGEN = "http://appetite.esy.es/File/ImageFromDirectory.php";
-    private final String TAG_ARRAY_IMAGE = "imagenes";
-    private final String TAG_IMAGE = "imagen";
-
-    //18 / 10/ 2015
-    //URL para traer el tipo de comida  http://appetite.esy.es/File/CategoriaController.php
-    private final String URL_COMIDA = "http://appetite.esy.es/File/CategoriaController.php";
-    private final String TAG_ARRAY_COMIDA = "menu_array"; //Nombre de array
-    private final String TAG_COMIDA = "nombre";//Obtener nombre
-    //Fin url archivo php
-
-    private ProgressDialog pDialog;                         // Progress Dialog
-    private Bitmap image;
-
-    //Variable de comidas  18/10/2015
-    private String comida_;
-
-    public MenuOpcionesController(Activity activity) {
-        this.activity = activity;
-        listView = (ListView) activity.findViewById(R.id.list_menu_opciones);
-    }
-
-    /**
-     * @private Before to start the background thread Show Progress Dialog
-     */
     @Override
-    protected void onPreExecute() {
-        super.onPreExecute();
-        pDialog = new ProgressDialog(activity);
-        pDialog.setMessage("Cargando menú. Por favor espere...");
-        pDialog.setIndeterminate(false);
-        pDialog.setCancelable(false);
-        pDialog.show();
-    }
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_menu_opciones);
 
-    /**
-     * @private Get all products
-     */
-    protected String doInBackground(String... args) {
-        ServerConnection serverConnection = new ServerConnection();
-        Menu menu;
-        JSONArray imageJSONArray;
-        JSONObject jsonImage = serverConnection.makeHttpRequestGet(URL_IMAGEN);
-        JSONObject instanceImage;
 
-        JSONArray comidaJSONArray;
-        JSONObject jsonComida = serverConnection.makeHttpRequestGet(URL_COMIDA);
-        JSONObject instanceComida;
+        MenuOpcionesService imageController = new MenuOpcionesService(MenuOpcionesController.this);
+        imageController.execute();
 
-        try {
-            imageJSONArray = jsonImage.getJSONArray(TAG_ARRAY_IMAGE);
-            comidaJSONArray = jsonComida.getJSONArray(TAG_ARRAY_COMIDA);
 
-            for (int i = 0; i < imageJSONArray.length(); i++) {
-                instanceImage = imageJSONArray.getJSONObject(i);
-                instanceComida = comidaJSONArray.getJSONObject(i);
-                menu = new Menu();
-                menu.setId(i + 1);
-                menu.setImage(instanceImage.getString(TAG_IMAGE));
-                menu.setComida(instanceComida.getString(TAG_COMIDA));
-                menuList.add(menu);
+        Button pantalla2 = (Button) findViewById(R.id.button37);
+        pantalla2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MenuOpcionesController.this, PagoController.class));
+
             }
 
+        });
 
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        final ListView mListView;
+        mListView = (ListView) findViewById(R.id.list_menu_opciones);
 
-        return null;
-    }
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-    /**
-     * @param file_url
-     * @private Updating UI from Background Thread and parsed JSON data into ListView
-     */
-    @Override
-    protected void onPostExecute(String file_url) {
-        pDialog.dismiss();
-        if (!menuList.isEmpty()) {
-            activity.runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    listView.setAdapter(new MenuAdapter(activity, menuList));
+                Intent intent = new Intent(getApplicationContext(), PresentacionController.class);
+
+                switch(position)
+                {
+                    case 0:
+                        MenuOpcion = "Desayunos";
+                        intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 1);
+                        startActivity(intent);
+                        break;
+
+                    case 1:
+                        MenuOpcion = "Entradas";
+                        intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 2);
+                        startActivity(intent);
+                        break;
+
+                    case 2:
+                        MenuOpcion = "Ensaladas";
+                        intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 3);
+                        startActivity(intent);
+                        break;
+
+                    case 3:
+                        MenuOpcion = "Cortes";
+                        intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 4);
+                        startActivity(intent);
+                        break;
+
+                    case 4:
+                        MenuOpcion = "Hamburguesas";
+                        intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 5);
+                        startActivity(intent);
+                        break;
+
+                    case 5:
+                        MenuOpcion = "Especialidades";
+                        intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 6);
+                        startActivity(intent);
+                        break;
+
+                    case 6:
+                        MenuOpcion = "Postres";
+                        intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 7);
+                        startActivity(intent);
+                        break;
+
+                    case 7:
+                        MenuOpcion = "Bebidas";
+                        intent.putExtra("Comidas", MenuOpcion);
+                        intent.putExtra("Categoria", 8);
+                        startActivity(intent);
+                        break;
                 }
-            });
-        }
+            }
+        });
+
     }
+
 }

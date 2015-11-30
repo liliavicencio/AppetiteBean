@@ -1,16 +1,13 @@
-package com.appetite.appetite.model;
+package com.appetite.appetite.controller;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -20,16 +17,13 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.appetite.appetite.R;
-import com.appetite.appetite.serialize.JSONSerialize;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 import java.util.Calendar;
 
 /**
  * Created by Alex on 10/10/2015.
  */
-public class Reservacion extends Activity implements OnClickListener {
+public class ReservacionController extends Activity implements OnClickListener {
     //Spinner spinner;
     Button buttonMenu, buttonAsientos;
     public boolean validaButton;
@@ -163,7 +157,7 @@ public class Reservacion extends Activity implements OnClickListener {
         Intent intent;
         switch (v.getId()) {
             case R.id.btnAsiento:
-                intent = new Intent(this, AsientosModel.class);
+                intent = new Intent(this, AsientosController.class);
                 Bundle bolsa = new Bundle();
                 bolsa.putString("time",time);
                 bolsa.putString("time2",time2);

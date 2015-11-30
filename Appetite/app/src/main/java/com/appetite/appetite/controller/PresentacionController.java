@@ -1,24 +1,19 @@
-package com.appetite.appetite.model;
+package com.appetite.appetite.controller;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appetite.appetite.R;
-import com.appetite.appetite.controller.ComidaOpcionesController;
-import com.appetite.appetite.serialize.JSONSerialize;
-import com.google.gson.reflect.TypeToken;
+import com.appetite.appetite.service.ComidaOpcionesService;
 
-import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
-
-public class Presentacion extends Activity implements  android.widget.CompoundButton.OnCheckedChangeListener{
+public class PresentacionController extends Activity implements  OnCheckedChangeListener{
 
     String RecibeComida;
     ListView listView;
@@ -33,21 +28,21 @@ public class Presentacion extends Activity implements  android.widget.CompoundBu
         CATEGORIA = getIntent().getStringExtra("Categoria");
         TipoComida = (TextView)findViewById(R.id.TipoComida);
         TipoComida.setText(RecibeComida);
-        ComidaOpcionesController MenuComidas
-                = new ComidaOpcionesController(Presentacion.this, RecibeComida, CATEGORIA);
+        ComidaOpcionesService MenuComidas
+                = new ComidaOpcionesService(PresentacionController.this, RecibeComida, CATEGORIA);
         MenuComidas.execute();
         listView =(ListView)findViewById(R.id.listView);
     }
 
     @Override
     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-        int pos = listView.getPositionForView(buttonView);
+        int position = listView.getPositionForView(buttonView);
 
-        if (pos != ListView.INVALID_POSITION) {
-            listView.getItemAtPosition(pos);
+        if (position != ListView.INVALID_POSITION) {
+            listView.getItemAtPosition(position);
             listView.setSelected(isChecked);
 
-            Toast.makeText(Presentacion.this, "Clicked on Planet:  State: is " + buttonView.getText().toString(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(PresentacionController.this, "Clicked on Planet:  State: is " + buttonView.getText().toString(), Toast.LENGTH_SHORT).show();
 
             if (isChecked== true) {
 

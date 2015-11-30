@@ -5,7 +5,9 @@ import android.graphics.BitmapFactory;
 import android.util.Base64;
 
 /**
- * Created by Alex on 14/10/2015.
+ * @autor Armando Alexis Sepulveda Cruz
+ * @date 2015-10-14
+ * @private modelo para codificar una imagen obtenidas por una peticion al servidor.
  */
 public class Image {
     private Bitmap image;

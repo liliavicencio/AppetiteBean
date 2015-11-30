@@ -1,4 +1,4 @@
-package com.appetite.appetite.controller;
+package com.appetite.appetite.service;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -21,7 +21,7 @@ import java.util.List;
  * Created by Dmoreno on 10/11/15.
  */
 
-public class ComidaOpcionesController extends AsyncTask<String, String, String> {   //aqui
+public class ComidaOpcionesService extends AsyncTask<String, String, String> {   //aqui
 
     private Activity activity;
     private List<Comida> comidaList = new ArrayList<>();
@@ -36,7 +36,7 @@ public class ComidaOpcionesController extends AsyncTask<String, String, String> 
     private ProgressDialog pDialog;
 
 
-    public ComidaOpcionesController(final Activity activity, String Recibecomida, String categoria) {
+    public ComidaOpcionesService(final Activity activity, String Recibecomida, String categoria) {
         this.activity = activity;
         listView = (ListView) activity.findViewById(R.id.listView);
         this.RecibeComida = Recibecomida;
