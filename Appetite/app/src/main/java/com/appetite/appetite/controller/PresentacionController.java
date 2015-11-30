@@ -13,7 +13,7 @@ import android.widget.Toast;
 import com.appetite.appetite.R;
 import com.appetite.appetite.service.ComidaOpcionesService;
 
-public class PresentacionController extends Activity implements  OnCheckedChangeListener{
+public class PresentacionController extends Activity implements OnCheckedChangeListener {
 
     String RecibeComida;
     ListView listView;
@@ -26,12 +26,12 @@ public class PresentacionController extends Activity implements  OnCheckedChange
         setContentView(R.layout.activity_presentacion);
         RecibeComida = getIntent().getStringExtra("Comidas");
         CATEGORIA = getIntent().getStringExtra("Categoria");
-        TipoComida = (TextView)findViewById(R.id.TipoComida);
+        TipoComida = (TextView) findViewById(R.id.TipoComida);
         TipoComida.setText(RecibeComida);
         ComidaOpcionesService MenuComidas
                 = new ComidaOpcionesService(PresentacionController.this, RecibeComida, CATEGORIA);
         MenuComidas.execute();
-        listView =(ListView)findViewById(R.id.listView);
+        listView = (ListView) findViewById(R.id.listView);
     }
 
     @Override
@@ -44,9 +44,9 @@ public class PresentacionController extends Activity implements  OnCheckedChange
 
             Toast.makeText(PresentacionController.this, "Clicked on Planet:  State: is " + buttonView.getText().toString(), Toast.LENGTH_SHORT).show();
 
-            if (isChecked== true) {
+            if (isChecked == true) {
 
-                final CharSequence[] items = {"1 Platillo", "2 Platillos", "3 platillos","4 Platillos","5 Platillos", "6 Platillos", "7 Platillos", "8 Platillos"};
+                final CharSequence[] items = {"1 Platillo", "2 Platillos", "3 platillos", "4 Platillos", "5 Platillos", "6 Platillos", "7 Platillos", "8 Platillos"};
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("Cantidad de platillos: ");

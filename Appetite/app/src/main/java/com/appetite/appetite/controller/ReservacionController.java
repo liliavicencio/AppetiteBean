@@ -28,8 +28,8 @@ public class ReservacionController extends Activity implements OnClickListener {
     Button buttonMenu, buttonAsientos;
     public boolean validaButton;
     private static final String SHARED_REGISTRO = "Reservacion";
-    static final int TIME_DIALOG_ID1=1;//timepicker
-    static final int TIME_DIALOG_ID2=2;//timepicker
+    static final int TIME_DIALOG_ID1 = 1;//timepicker
+    static final int TIME_DIALOG_ID2 = 2;//timepicker
     int hour_x;//timepicker
     int minute_x;//timepicker
     int auxHour_x = 0;
@@ -61,12 +61,11 @@ public class ReservacionController extends Activity implements OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
 
-        try{
+        try {
             Bundle bolsa = getIntent().getExtras();
-            String asiento =  bolsa.getString("asiento");
+            String asiento = bolsa.getString("asiento");
             System.out.println("FINAL: " + asiento);
-        }
-        catch(Exception e){
+        } catch (Exception e) {
             System.out.println(e);
         }
 
@@ -79,9 +78,9 @@ public class ReservacionController extends Activity implements OnClickListener {
         counter = 0;
         add = (Button) findViewById(R.id.btnSumar);
         sub = (Button) findViewById(R.id.btnRestar);
-        final TextView textViewResult=(TextView)findViewById(R.id.total_personas);
-        dispHE = (TextView)findViewById(R.id.dispHE);
-        dispHS = (TextView)findViewById(R.id.dispHS);
+        final TextView textViewResult = (TextView) findViewById(R.id.total_personas);
+        dispHE = (TextView) findViewById(R.id.dispHE);
+        dispHS = (TextView) findViewById(R.id.dispHS);
 
         buttonAsientos = (Button) findViewById(R.id.btnAsiento);
         //buttonMenu = (Button) findViewById(R.id.btnMenuOpciones);
@@ -114,7 +113,7 @@ public class ReservacionController extends Activity implements OnClickListener {
 
         ValidarBotones();
 
-}
+    }
 
     public void ValidarBotones() {
         if (!"".equals(dispHE.getText().toString())
@@ -159,9 +158,9 @@ public class ReservacionController extends Activity implements OnClickListener {
             case R.id.btnAsiento:
                 intent = new Intent(this, AsientosController.class);
                 Bundle bolsa = new Bundle();
-                bolsa.putString("time",time);
-                bolsa.putString("time2",time2);
-                bolsa.putString("date",date);
+                bolsa.putString("time", time);
+                bolsa.putString("time2", time2);
+                bolsa.putString("date", date);
                 intent.putExtras(bolsa);
                 /*
                 Registro registro = new Registro();
@@ -283,7 +282,7 @@ public class ReservacionController extends Activity implements OnClickListener {
     }
 
     //Time Picker 1
-    public void showTimePickerDialog(){
+    public void showTimePickerDialog() {
         Button btnE = (Button) findViewById(R.id.btnTimerEntrada);
         btnE.setOnClickListener(
                 new View.OnClickListener() {
@@ -307,20 +306,20 @@ public class ReservacionController extends Activity implements OnClickListener {
     AlertDialog myDialog = null;
 
     @Override
-    protected Dialog onCreateDialog(int id){
-        switch (id){
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
             case TIME_DIALOG_ID1:
-                myDialog = new TimePickerDialog(this, timeEntrada, hour_x, minute_x,false);
+                myDialog = new TimePickerDialog(this, timeEntrada, hour_x, minute_x, false);
                 actual = TIME_DIALOG_ID1;
                 break;
             case DATE_DIALOG_ID:
-                myDialog = new DatePickerDialog(this, datePickerListener, year, month,day);
+                myDialog = new DatePickerDialog(this, datePickerListener, year, month, day);
                 break;
             case TIME_DIALOG_ID2:
-                myDialog = new TimePickerDialog(this, timeSalida, hour_y, minute_y,false);
+                myDialog = new TimePickerDialog(this, timeSalida, hour_y, minute_y, false);
                 actual = TIME_DIALOG_ID2;
                 break;
-              }
+        }
 
         return myDialog;
     }
@@ -381,9 +380,9 @@ public class ReservacionController extends Activity implements OnClickListener {
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             //String validaEntrada = "Ingrese una hora menor a la hora de salida.";
             String validaSalida = "Ingrese una hora mayor a la hora de salida.";
-                hour_y = hourOfDay;
-                minute_y = minute;
-                if (hour_x == 0) {
+            hour_y = hourOfDay;
+            minute_y = minute;
+            if (hour_x == 0) {
                     /*myAlert.setMessage("Por favor ingrese primero la Hora de Entrada").setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -391,37 +390,37 @@ public class ReservacionController extends Activity implements OnClickListener {
                         }
                     }).create();
                     myAlert.show();*/
-                    Toast.makeText(getApplicationContext(), "Ingrese primero la hora de entrada.",
-                            Toast.LENGTH_SHORT).show();
-                    hour_y = 0;
-                    minute_y = 0;
-                } else if (hour_y == hour_x) {
-                    if (minute_y >= (minute_x + 30)) {
-                        auxHour_y = hour_y;
-                        auxMinute_y = minute_y;
-                        dispHS.setText(new StringBuilder().append(pad(hour_y)).append(":").append(pad(minute_y)));
-                        ValidarBotones();
-                    } else {
-                        Toast.makeText(getApplicationContext(), validaSalida,
-                                Toast.LENGTH_SHORT).show();
-                        hour_y = auxHour_y;
-                        minute_y = auxMinute_y;
-                        //SetAlert();
-                    }
-                } else if (hour_y > hour_x) {
+                Toast.makeText(getApplicationContext(), "Ingrese primero la hora de entrada.",
+                        Toast.LENGTH_SHORT).show();
+                hour_y = 0;
+                minute_y = 0;
+            } else if (hour_y == hour_x) {
+                if (minute_y >= (minute_x + 30)) {
                     auxHour_y = hour_y;
                     auxMinute_y = minute_y;
                     dispHS.setText(new StringBuilder().append(pad(hour_y)).append(":").append(pad(minute_y)));
                     ValidarBotones();
                 } else {
-                    //SetAlert();
                     Toast.makeText(getApplicationContext(), validaSalida,
                             Toast.LENGTH_SHORT).show();
                     hour_y = auxHour_y;
                     minute_y = auxMinute_y;
+                    //SetAlert();
                 }
+            } else if (hour_y > hour_x) {
+                auxHour_y = hour_y;
+                auxMinute_y = minute_y;
+                dispHS.setText(new StringBuilder().append(pad(hour_y)).append(":").append(pad(minute_y)));
+                ValidarBotones();
+            } else {
+                //SetAlert();
+                Toast.makeText(getApplicationContext(), validaSalida,
+                        Toast.LENGTH_SHORT).show();
+                hour_y = auxHour_y;
+                minute_y = auxMinute_y;
             }
-       // }
+        }
+        // }
 
     };
 
@@ -439,7 +438,6 @@ public class ReservacionController extends Activity implements OnClickListener {
 
         myAlert.show();
     }*/
-
 
 
     //TIME PICKER ENDS

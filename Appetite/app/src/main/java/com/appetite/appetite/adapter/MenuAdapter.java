@@ -10,10 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.appetite.appetite.R;
-import com.appetite.appetite.model.Image;
 import com.appetite.appetite.model.Menu;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -50,7 +48,7 @@ public class MenuAdapter extends BaseAdapter {
         ImageView imageView;
         TextView comidaView;
 
-        if(convertView == null) {
+        if (convertView == null) {
             LayoutInflater inflater
                     = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             view = inflater.inflate(R.layout.image_test, null);

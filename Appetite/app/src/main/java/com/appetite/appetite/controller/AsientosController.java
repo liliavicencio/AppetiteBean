@@ -56,7 +56,7 @@ public class AsientosController extends Activity {
 //        JSONSerialize<Registro> serialize = new JSONSerialize<Registro>(Registro.class);
 //        Registro registro = serialize.getSerialization(this,"registro");
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.button1:
                 Intent int1 = new Intent(v.getContext(), MenuOpcionesController.class);
                 Bundle bolsa = new Bundle();

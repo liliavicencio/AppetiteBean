@@ -13,7 +13,6 @@ import com.appetite.appetite.R;
 import com.appetite.appetite.model.Comida;
 import com.appetite.appetite.serialize.JSONSerialize;
 
-import java.util.AbstractCollection;
 import java.util.List;
 
 /**

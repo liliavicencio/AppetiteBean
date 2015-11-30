@@ -24,9 +24,9 @@ public class ServerConnection {
     public final String NEW_LINE = "\n";
 
     /**
-     * @private Recibe la respuesta del Servicio Web
      * @param webUrl La url con la cual se comunicaro la aplicacion Android
      * @return JSONObject con la respuesta del Servicio Web
+     * @private Recibe la respuesta del Servicio Web
      */
     public JSONObject makeHttpRequestGet(String webUrl) {
         URL url;
@@ -73,10 +73,10 @@ public class ServerConnection {
     }
 
     /**
-     * @private Envia parametros y recibe la respuesta del Servicio Web
      * @param webUrl La url con la cual se comunicara la aplicacion Android
      * @param params Parametros a enviar al servicio Web
      * @return JSONObject con la respuesta del Servicio Web
+     * @private Envia parametros y recibe la respuesta del Servicio Web
      */
     public JSONObject makeHttpRequestPost(String webUrl, String params) {
         URL url;

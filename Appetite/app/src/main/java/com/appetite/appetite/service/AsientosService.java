@@ -2,19 +2,12 @@ package com.appetite.appetite.service;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+
 import com.appetite.appetite.R;
-
 import com.appetite.appetite.connection.ServerConnection;
-
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -69,7 +62,7 @@ public class AsientosService extends AsyncTask<String, String, String> {
     String time2;
     String date;
 
-    public AsientosService(Activity activity, String time, String date, String time2){
+    public AsientosService(Activity activity, String time, String date, String time2) {
         this.activity = activity;
         this.time = time;
         this.date = date;
@@ -105,12 +98,12 @@ public class AsientosService extends AsyncTask<String, String, String> {
         JSONObject Aasiento_;
 
         try {
-            asiento_=json.getJSONArray(TAG_ARRAY_ASIENTO_);
+            asiento_ = json.getJSONArray(TAG_ARRAY_ASIENTO_);
 
-            for (int cont=0; cont < asiento_.length(); cont++){
-                Aasiento_=asiento_.getJSONObject(cont);
+            for (int cont = 0; cont < asiento_.length(); cont++) {
+                Aasiento_ = asiento_.getJSONObject(cont);
 
-                switch (Aasiento_.getInt(TAG_ASIENTO_)){
+                switch (Aasiento_.getInt(TAG_ASIENTO_)) {
                     case 1:
                         asiento1 = 1;
                         break;
@@ -171,62 +164,62 @@ public class AsientosService extends AsyncTask<String, String, String> {
         btn11 = (Button) activity.findViewById(R.id.button11);
         btn12 = (Button) activity.findViewById(R.id.button12);
 
-        if(asiento1 == 1){
+        if (asiento1 == 1) {
             btn1.setEnabled(false);
             btn1.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
-        if(asiento2 == 1){
+        if (asiento2 == 1) {
             btn2.setEnabled(false);
             btn2.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
-        if(asiento3 == 1){
+        if (asiento3 == 1) {
             btn3.setEnabled(false);
             btn3.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
-        if(asiento4 == 1){
+        if (asiento4 == 1) {
             btn4.setEnabled(false);
             btn4.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
-        if(asiento5 == 1){
+        if (asiento5 == 1) {
             btn5.setEnabled(false);
             btn5.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
-        if(asiento6 == 1){
+        if (asiento6 == 1) {
             btn6.setEnabled(false);
             btn6.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
-        if(asiento7 == 1){
+        if (asiento7 == 1) {
             btn7.setEnabled(false);
             btn7.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
-        if(asiento8 == 1){
+        if (asiento8 == 1) {
             btn8.setEnabled(false);
             btn8.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
-        if(asiento9 == 1){
+        if (asiento9 == 1) {
             btn9.setEnabled(false);
             btn9.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
-        if(asiento10 == 1){
+        if (asiento10 == 1) {
             btn10.setEnabled(false);
             btn10.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
-        if(asiento11 == 1){
+        if (asiento11 == 1) {
             btn11.setEnabled(false);
             btn11.setBackgroundColor(Color.parseColor("#ca4236"));
         }
 
-        if(asiento12 == 1){
+        if (asiento12 == 1) {
             btn12.setEnabled(false);
             btn12.setBackgroundColor(Color.parseColor("#ca4236"));
         }

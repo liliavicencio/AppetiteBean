@@ -11,8 +11,7 @@ import org.json.JSONObject;
 /**
  * Created by Lily on 27/10/2015.
  */
-public class SucursalService extends AsyncTask<String, String, String>
-{
+public class SucursalService extends AsyncTask<String, String, String> {
     private final String URL = "http://appetite.esy.es/File/SpinnerSucursal.php";
     private final String TAG_ARRAY_MENU = "sucursal_array";
     private final String TAG_NOMBRE = "nombre";

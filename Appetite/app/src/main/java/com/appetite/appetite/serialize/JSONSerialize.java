@@ -20,6 +20,7 @@ import java.util.List;
 public class JSONSerialize<T> {
 
     private static final String SHARED_REGISTRO = "Reservacion";
+    private static final String EMPTY_JSON_OBJECT = "";
     private static final String EMPTY_JSON_LIST = "[]";
     private Class<T> entityClass;
 
@@ -40,7 +41,7 @@ public class JSONSerialize<T> {
         SharedPreferences preferences = activity.getSharedPreferences(SHARED_REGISTRO, Context.MODE_PRIVATE);
         String json = preferences.getString(key, "");
 
-        if(json.equals("")) {
+        if (json.equals(EMPTY_JSON_OBJECT)) {
             return (T) new Object();
         }
 
@@ -51,7 +52,7 @@ public class JSONSerialize<T> {
         Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
         SharedPreferences preferences = activity.getSharedPreferences(SHARED_REGISTRO, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = preferences.edit();
-        if(list.isEmpty()) {
+        if (list.isEmpty()) {
             list = new ArrayList<T>();
         }
         editor.putString(key, gson.toJson(list));
@@ -63,7 +64,7 @@ public class JSONSerialize<T> {
         SharedPreferences preferences = activity.getSharedPreferences(SHARED_REGISTRO, Context.MODE_PRIVATE);
         String json = preferences.getString(key, "");
 
-        if(json.equals(EMPTY_JSON_LIST)) {
+        if (json.equals(EMPTY_JSON_LIST)) {
             return new ArrayList<T>();
         } else {
             return gson.fromJson(json, t);

@@ -1,14 +1,11 @@
 package com.appetite.appetite.model;
 
-import com.appetite.appetite.serialize.JSONSerialize;
 import com.google.gson.annotations.Expose;
-
-import java.io.Serializable;
 
 /**
  * Created by Alex on 27/11/2015.
  */
-public class Registro  {
+public class Registro {
     @Expose
     private String time;
     @Expose
